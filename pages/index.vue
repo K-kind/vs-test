@@ -18,7 +18,7 @@
           rel="noopener noreferrer"
           class="button--grey"
         >
-          GitHub hoge
+          GitHub hoge hoge
         </a>
       </div>
     </div>
