@@ -18,7 +18,7 @@
           rel="noopener noreferrer"
           class="button--grey"
         >
-          GitHub hoge hoge
+          GitHub hoge hoge hoge hoge
         </a>
       </div>
     </div>
@@ -27,10 +27,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
-
 export default Vue.extend({
   data() {
     return {}
+  },
+  methods: {
+    test: num => {
+      const hoge = 9
+      return num * hoge
+    }
   }
 })
 </script>
@@ -44,6 +49,9 @@ export default Vue.extend({
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+.ng {
+  width: calc(100% - 20px);
 }
 
 .title {
