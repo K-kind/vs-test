@@ -1,4 +1,8 @@
 export default {
+  server: {
+    port: 8080, // デフォルト: 3000
+    host: 'katahira.co.jp' // デフォルト: localhost
+  },
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
 
@@ -20,7 +24,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ['@/plugins/my-library', '@/plugins/axios'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -30,7 +34,8 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/stylelint
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/composition-api'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)

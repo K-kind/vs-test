@@ -1,7 +1,11 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
+      <div>
+        <span>カウント: {{ count }}</span>
+        <Child :seed="Number(seed)" @onClick="countUp" />
+        <o-input v-model.number="seed" />
+      </div>
       <h1 v-if="true" id="hoge" class="title">vs-test2</h1>
       <div class="links">
         <a
@@ -26,15 +30,25 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-  data() {
-    return {}
-  },
-  methods: {
-    test: num => {
-      const hoge = 9
-      return num * hoge
+import { defineComponent, reactive, toRefs } from '@nuxtjs/composition-api'
+
+type State = {
+  count: number
+  seed: number
+}
+export default defineComponent({
+  setup: () => {
+    const state = reactive<State>({
+      count: 0,
+      seed: 1
+    })
+    const countUp = (num: number) => {
+      state.count += num
+    }
+
+    return {
+      countUp,
+      ...toRefs(state)
     }
   }
 })
@@ -65,12 +79,12 @@ export default Vue.extend({
 }
 
 .subtitle {
-            font-weight: 300;
-            font-size: 42px;
-            color: #526488;
-            word-spacing: 5px;
-            padding-bottom: 15px;
-          }
+  font-weight: 300;
+  font-size: 42px;
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
 
 .links {
   padding-top: 15px;
